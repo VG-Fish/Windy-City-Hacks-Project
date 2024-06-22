@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c55mb40wi6ogr"
+path="res://.godot/imported/a_marketplace_stand_0622230537_refine.obj-ea5c6bf621b5e5202704579717eb6526.mesh"
+
+[deps]
+
+files=["res://.godot/imported/a_marketplace_stand_0622230537_refine.obj-ea5c6bf621b5e5202704579717eb6526.mesh"]
+
+source_file="res://Assets/a_marketplace_stand_0622230537_refine_obj/a_marketplace_stand_0622230537_refine.obj"
+dest_files=["res://.godot/imported/a_marketplace_stand_0622230537_refine.obj-ea5c6bf621b5e5202704579717eb6526.mesh", "res://.godot/imported/a_marketplace_stand_0622230537_refine.obj-ea5c6bf621b5e5202704579717eb6526.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

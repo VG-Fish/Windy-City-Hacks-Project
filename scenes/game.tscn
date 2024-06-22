@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgn38re5a2kl8"]
+[gd_scene load_steps=10 format=3 uid="uid://dgn38re5a2kl8"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_01x7x"]
 [ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://Player/player.tscn" id="1_hmpmx"]
 [ext_resource type="Texture2D" uid="uid://dm8m3jsusmc7q" path="res://Assets/download.png" id="1_o1hh4"]
+[ext_resource type="ArrayMesh" uid="uid://dthpp2rp08pky" path="res://Assets/a_marketplace_stand_0622231056_refine_obj/a_marketplace_stand_0622231056_refine.obj" id="4_wqlky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
 size = Vector3(50, 1, 50)
@@ -14,6 +15,9 @@ albedo_texture = ExtResource("1_o1hh4")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jhhay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14y1p"]
+size = Vector3(3.03492, 2.84895, 2.2532)
 
 [node name="Marketplace" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0694022, 0, -0.254631)
@@ -37,3 +41,26 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 3.77492, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 10)
 mesh = SubResource("CapsuleMesh_jhhay")
+
+[node name="Stall1" type="StaticBody3D" parent="."]
+
+[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="Stall1"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6, 1.96109, -10)
+mesh = ExtResource("4_wqlky")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01862, 2.02164, -10.0124)
+shape = SubResource("BoxShape3D_14y1p")
+
+[node name="Stall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.8, 10)
+
+[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="Stall2"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 15, 2.08165e-12, 2.08165e-12)
+mesh = ExtResource("4_wqlky")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0507, 0.185072, -0.136476)
+shape = SubResource("BoxShape3D_14y1p")
