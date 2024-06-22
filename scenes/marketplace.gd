@@ -1,7 +1,7 @@
 extends Node3D
 
 func _ready():
-	print(get_response("You are a spanish street vendor in a game about building confidence in speaking other languages"))
+	$Label3D.text = get_response("You are a spanish street vendor in a game about building confidence in speaking other languages")
 
 func _process(delta):
 	pass
