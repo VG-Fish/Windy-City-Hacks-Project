@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgn38re5a2kl8"]
+[gd_scene load_steps=8 format=3 uid="uid://dgn38re5a2kl8"]
 
-[ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://player.tscn" id="1_hmpmx"]
-[ext_resource type="Texture2D" uid="uid://dm8m3jsusmc7q" path="res://download.png" id="1_o1hh4"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_01x7x"]
+[ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://Player/player.tscn" id="1_hmpmx"]
+[ext_resource type="Texture2D" uid="uid://dm8m3jsusmc7q" path="res://Assets/download.png" id="1_o1hh4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
 size = Vector3(50, 1, 50)
@@ -14,8 +15,9 @@ size = Vector3(50, 1, 50)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jhhay"]
 
-[node name="Game" type="Node3D"]
+[node name="Marketplace" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0694022, 0, -0.254631)
+script = ExtResource("1_01x7x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.64679, 0.24326, -0.722833, 1.65713e-07, 0.947768, 0.318959, 0.762668, 0.206299, -0.613007, -19.871, 35.0655, -5.34692)

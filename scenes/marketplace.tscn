@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://1skq3v2iko1a"]
-
-[ext_resource type="Script" path="res://scenes/marketplace.gd" id="1_dhnhg"]
-
-[node name="Marketplace" type="Node3D"]
-script = ExtResource("1_dhnhg")
-
-[node name="Label3D" type="Label3D" parent="."]
