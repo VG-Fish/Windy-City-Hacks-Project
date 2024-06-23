@@ -38,7 +38,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
-text = "Welcome! Press the Game button when you are ready to play. Walk around the marketplace, and walk up to NPCs and press enter to interact with them. Press esc to stop interacting."
+text = "Welcome! Press the Game button when you are ready to play. Walk around the marketplace, and walk up to NPCs and press enter to interact with them. You will not be able to move while interacting. Press esc to stop interacting."
 autowrap_mode = 2
 
 [node name="Game" type="Button" parent="."]
