@@ -54,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NPC" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 2.08165e-12)
+custom_minimum_size = Vector2(550, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "NPC: "
@@ -64,9 +64,17 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(2.08165e-12, 20)
 layout_mode = 2
 
-[node name="Player" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 2.08165e-12)
+[node name="Player" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Player"]
+custom_minimum_size = Vector2(50, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Player: "
 autowrap_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Player"]
+layout_mode = 2
+
+[connection signal="text_submitted" from="VBoxContainer/Player/LineEdit" to="." method="_on_line_edit_text_submitted"]

@@ -2,7 +2,7 @@ import google.generativeai as genai, sys
 
 genai.configure(api_key="AIzaSyC9Dv4b-73KLTc7E2jqqrIRhgSPO4F4Fjo")
 
-model = genai.GenerativeModel('gemini-1.5-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 prompt = sys.argv[1]
 prompt_addon = """
