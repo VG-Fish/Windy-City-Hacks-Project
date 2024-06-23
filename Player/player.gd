@@ -7,6 +7,9 @@ var mouse_sensitivity = 0.005
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		return
+	
 	velocity.y += - gravity * delta
 	var input = Input.get_vector("left","right","up","down")
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
@@ -17,6 +20,9 @@ func _physics_process(delta):
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_speed
 func _input(event):
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		return
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bypkp6eknwrl5"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ygw2k"]
+
+[sub_resource type="Theme" id="Theme_goiuk"]
+
+[sub_resource type="SystemFont" id="SystemFont_0d207"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_goiuk")
+script = ExtResource("1_ygw2k")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.3
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Welcome! Press the Game button when you are ready to play. Walk around the marketplace, and walk up to NPCs and press enter to interact with them. Press esc to stop interacting."
+autowrap_mode = 2
+
+[node name="Game" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_0d207")
+theme_override_font_sizes/font_size = 30
+text = "Game"
+
+[connection signal="pressed" from="Game" to="." method="_on_game_pressed"]

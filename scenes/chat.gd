@@ -27,6 +27,8 @@ func change_to_got_response_text() -> void:
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("hide"):
 		visible = false
+		DisplayServer.tts_stop()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_line_edit_text_submitted(new_text):
 	user_response_generated.emit(new_text)
