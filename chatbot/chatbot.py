@@ -8,6 +8,7 @@ prompt = sys.argv[1]
 prompt_addon = """
 Give tips if the user only if the user asks for them.
 Otherwise, act as a normal street vendor who sells fruits. Make sure you reprimand the user if they talk inappropriately.
+Do not say anything else other than what is expected of a street vendor.
 Put an english translation at the end of the prompt. Before writing the english translation, put a semicolon to signify the change.
 """
 response = model.generate_content(prompt + prompt_addon)

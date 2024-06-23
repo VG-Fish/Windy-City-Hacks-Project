@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 <<<<<<<HEADconfig/name="Windy-city-hacks-project"
 
-[autoload]
-
-Globals="*res://globals/globals.gd"
-
 [input]
 
 left={

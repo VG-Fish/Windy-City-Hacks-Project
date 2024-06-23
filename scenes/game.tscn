@@ -72,3 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34271, 0)
 
 [node name="NPC" parent="NPCS" instance=ExtResource("5_c6d8w")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19, 1.5, -1.5)
+
+[node name="NPC2" parent="NPCS" instance=ExtResource("5_c6d8w")]
+transform = Transform3D(-2, 6.97574e-16, -1.74846e-07, 6.97574e-16, 2, -6.97574e-16, 1.74846e-07, -6.97574e-16, -2, 19, 1.5, 11.5)
