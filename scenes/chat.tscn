@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf1y2bxmmopce"]
+
+[ext_resource type="Script" path="res://scenes/chat.gd" id="1_6mr0v"]
+
+[sub_resource type="Theme" id="Theme_iaajb"]
+default_font_size = 25
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_iaajb")
+script = ExtResource("1_6mr0v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.15
+anchor_right = 0.6
+anchor_bottom = 0.15
+offset_left = -103.5
+offset_top = -11.5
+offset_right = 103.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You are talking to the NPC. Press esc to hide chat."
+autowrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -37.0
+offset_right = 44.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NPC" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "NPC: "
+
+[node name="Player" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Player: "
