@@ -27,6 +27,7 @@ func _process(_delta) -> void:
 		if response != "Getting response...":
 			getting_response = false
 			var r: PackedStringArray = response.strip_edges().replace("\n", "").split(";")
+			response = ""
 			chat_history.append(PackedStringArray([name + ": ", r[0], r[1]]))
 			$Chat.visible = true
 

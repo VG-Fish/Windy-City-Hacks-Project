@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/chat.gd" id="1_6mr0v"]
 
 [sub_resource type="Theme" id="Theme_iaajb"]
-default_font_size = 25
+default_font_size = 15
 
 [node name="Chat" type="Control"]
 layout_mode = 3
@@ -37,8 +37,7 @@ offset_right = 103.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You are talking to the NPC. Press esc to hide chat."
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -55,11 +54,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NPC" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "NPC: "
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
 
 [node name="Player" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Player: "
+autowrap_mode = 2

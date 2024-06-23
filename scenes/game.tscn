@@ -39,7 +39,7 @@ material_override = SubResource("StandardMaterial3D_3nn27")
 mesh = SubResource("BoxMesh_r7jr6")
 
 [node name="Player" parent="." instance=ExtResource("1_hmpmx")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.586325, 1.81699, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 14.4386, 1.81699, 0)
 collision_mask = 2
 
 [node name="stalls" type="Node3D" parent="."]
