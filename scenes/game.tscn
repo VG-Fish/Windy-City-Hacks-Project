@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgn38re5a2kl8"]
+[gd_scene load_steps=10 format=3 uid="uid://dgn38re5a2kl8"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_01x7x"]
 [ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://Player/player.tscn" id="1_hmpmx"]
 [ext_resource type="Texture2D" uid="uid://cfc0j5h41ekbg" path="res://Assets/rock_face_03_diff_4k.jpg" id="2_bwn0r"]
 [ext_resource type="ArrayMesh" uid="uid://dthpp2rp08pky" path="res://Assets/a_marketplace_stand_0622231056_refine_obj/a_marketplace_stand_0622231056_refine.obj" id="4_wqlky"]
-[ext_resource type="ArrayMesh" uid="uid://datqx6k6cehyd" path="res://Assets/merchant_0622234656_refine_obj/merchant_0622234656_refine.obj" id="5_lfdwc"]
+[ext_resource type="PackedScene" uid="uid://y2wx261mt8ga" path="res://NPC/merchant1.tscn" id="5_c6d8w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
 size = Vector3(50, 1, 50)
@@ -21,8 +21,6 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_14y1p"]
 size = Vector3(3.03492, 2.84895, 2.2532)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v84lc"]
-
 [node name="Marketplace" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0694022, 0, -0.254631)
 script = ExtResource("1_01x7x")
@@ -31,6 +29,7 @@ script = ExtResource("1_01x7x")
 transform = Transform3D(-0.64679, 0.24326, -0.722833, 1.65713e-07, 0.947768, 0.318959, 0.762668, 0.206299, -0.613007, -19.871, 35.0655, -5.34692)
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_jega1")
@@ -40,7 +39,8 @@ material_override = SubResource("StandardMaterial3D_3nn27")
 mesh = SubResource("BoxMesh_r7jr6")
 
 [node name="Player" parent="." instance=ExtResource("1_hmpmx")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 3.77492, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.586325, 1.81699, 0)
+collision_mask = 2
 
 [node name="stalls" type="Node3D" parent="."]
 
@@ -68,13 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0507, 0.185072, -0.136476)
 shape = SubResource("BoxShape3D_14y1p")
 
 [node name="NPCS" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34271, 0)
 
-[node name="NPC1" type="StaticBody3D" parent="NPCS"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/NPC1"]
-shape = SubResource("CapsuleShape3D_v84lc")
-
-[node name="Merchant0622234656Refine" type="MeshInstance3D" parent="NPCS/NPC1"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 10, 2, 2.08165e-12)
-mesh = ExtResource("5_lfdwc")
-skeleton = NodePath("../../..")
+[node name="NPC" parent="NPCS" instance=ExtResource("5_c6d8w")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19, 1.5, -1.5)

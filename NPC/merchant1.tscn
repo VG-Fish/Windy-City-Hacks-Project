@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://y2wx261mt8ga"]
+
+[ext_resource type="PackedScene" uid="uid://dhta73oqexq4j" path="res://NPC/base/npc.tscn" id="1_x2tdw"]
+[ext_resource type="ArrayMesh" uid="uid://refp8g6wkf12" path="res://Assets/merchant_0622234700_refine_obj/merchant_0622234700_refine.obj" id="2_fx5uw"]
+
+[node name="NPC" instance=ExtResource("1_x2tdw")]
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_fx5uw")
