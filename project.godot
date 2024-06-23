@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 <<<<<<<HEADconfig/name="Windy-city-hacks-project"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 left={

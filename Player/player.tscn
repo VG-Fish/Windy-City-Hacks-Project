@@ -2,23 +2,25 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_0khdu"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8im50"]
-size = Vector3(10, 10, 10)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8a8ef"]
+radius = 5.45
+height = 14.861
 
-[sub_resource type="BoxMesh" id="BoxMesh_60w8n"]
-size = Vector3(10, 10, 10)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_18nxx"]
+radius = 5.45
+height = 14.861
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_0khdu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_8im50")
+shape = SubResource("CapsuleShape3D_8a8ef")
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_60w8n")
+mesh = SubResource("CapsuleMesh_18nxx")
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 metadata/_edit_group_ = true

@@ -1,13 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgn38re5a2kl8"]
+[gd_scene load_steps=16 format=3 uid="uid://b4ebo0x1sqqme"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_01x7x"]
 [ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://Player/player.tscn" id="1_hmpmx"]
 [ext_resource type="Texture2D" uid="uid://cfc0j5h41ekbg" path="res://Assets/rock_face_03_diff_4k.jpg" id="2_bwn0r"]
 [ext_resource type="ArrayMesh" uid="uid://dthpp2rp08pky" path="res://Assets/a_marketplace_stand_0622231056_refine_obj/a_marketplace_stand_0622231056_refine.obj" id="4_wqlky"]
 [ext_resource type="ArrayMesh" uid="uid://datqx6k6cehyd" path="res://Assets/merchant_0622234656_refine_obj/merchant_0622234656_refine.obj" id="5_lfdwc"]
+[ext_resource type="Script" path="res://scenes/DirectionalLight3D.gd" id="6_7f5bo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3ayx"]
+size = Vector3(58.7947, 2.81647, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
-size = Vector3(50, 1, 50)
+size = Vector3(300, 1, 300)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nn27"]
 albedo_texture = ExtResource("2_bwn0r")
@@ -16,19 +20,51 @@ uv2_scale = Vector3(10, 10, 10)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_r7jr6"]
-size = Vector3(50, 1, 50)
+size = Vector3(300, 1, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14y1p"]
 size = Vector3(3.03492, 2.84895, 2.2532)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v84lc"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j32uv"]
+sky_top_color = Color(0.144039, 0.366083, 1, 1)
+sky_horizon_color = Color(0.527636, 0.630715, 1, 1)
+ground_bottom_color = Color(0.66854, 0.754971, 1, 1)
+ground_horizon_color = Color(0.529412, 0.631373, 1, 1)
+sun_angle_max = 360.0
+
+[sub_resource type="Sky" id="Sky_xomht"]
+sky_material = SubResource("ProceduralSkyMaterial_j32uv")
+
+[sub_resource type="Environment" id="Environment_drcuv"]
+background_mode = 2
+sky = SubResource("Sky_xomht")
+ambient_light_color = Color(0, 0.501961, 0.945098, 1)
+reflected_light_source = 2
+
 [node name="Marketplace" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0694022, 0, -0.254631)
 script = ExtResource("1_01x7x")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.64679, 0.24326, -0.722833, 1.65713e-07, 0.947768, 0.318959, 0.762668, 0.206299, -0.613007, -19.871, 35.0655, -5.34692)
+[node name="Border" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830873, 2.16179, 29.964)
+shape = SubResource("BoxShape3D_v3ayx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830873, 2.16179, -26.3811)
+shape = SubResource("BoxShape3D_v3ayx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.4965, 2.16179, 1.97249)
+shape = SubResource("BoxShape3D_v3ayx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Border"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28.9786, 2.16179, 1.97249)
+shape = SubResource("BoxShape3D_v3ayx")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -72,9 +108,19 @@ shape = SubResource("BoxShape3D_14y1p")
 [node name="NPC1" type="StaticBody3D" parent="NPCS"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/NPC1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.94747, 1.91376, 0.140118)
 shape = SubResource("CapsuleShape3D_v84lc")
 
 [node name="Merchant0622234656Refine" type="MeshInstance3D" parent="NPCS/NPC1"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 10, 2, 2.08165e-12)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 10, 2, 0)
 mesh = ExtResource("5_lfdwc")
 skeleton = NodePath("../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_drcuv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.857167, -9.00521e-08, -0.515038, 0, 1, -1.74846e-07, 0.515038, -1.49872e-07, -0.857167, 0, 63.9207, 0)
+script = ExtResource("6_7f5bo")
