@@ -31,8 +31,10 @@ func change_to_got_response_text() -> void:
 	response = gemini_script_instance.get_response()
 	var r: PackedStringArray = response.strip_edges().replace("\n", "").split(";")
 	response = ""
-	chat_history.append(PackedStringArray([name + ": ", r[0], r[1]]))
-	
+	if r.size() == 2:
+		chat_history.append(PackedStringArray([name + ": ", r[0], r[1]]))
+	else:
+		chat_history.append(PackedStringArray([name + ": ", r[0]]))
 	$Chat.visible = true
 	chat_gotten_response.emit()
 	getting_response = false
