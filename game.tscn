@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://lhr7tkxx4our"]
+
+[ext_resource type="PackedScene" path="res://player.tscn" id="1_hmpmx"]
+[ext_resource type="Texture2D" path="res://download.png" id="1_o1hh4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kdwk"]
+albedo_texture = ExtResource("1_o1hh4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7jr6"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jhhay"]
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0694022, 0, -0.254631)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.64679, 0.24326, -0.722833, 1.65713e-07, 0.947768, 0.318959, 0.762668, 0.206299, -0.613007, -19.871, 35.0655, -5.34692)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_jega1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_2kdwk")
+mesh = SubResource("BoxMesh_r7jr6")
+
+[node name="Player" parent="." instance=ExtResource("1_hmpmx")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 3.77492, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("CapsuleMesh_jhhay")
+skeleton = NodePath("../..")

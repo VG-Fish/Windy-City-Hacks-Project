@@ -1,15 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgn38re5a2kl8"]
+[gd_scene load_steps=10 format=3 uid="uid://b4ebo0x1sqqme"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_01x7x"]
 [ext_resource type="PackedScene" uid="uid://c07a6m84iui8d" path="res://Player/player.tscn" id="1_hmpmx"]
-[ext_resource type="Texture2D" uid="uid://dm8m3jsusmc7q" path="res://Assets/download.png" id="1_o1hh4"]
+[ext_resource type="Texture2D" uid="uid://cfc0j5h41ekbg" path="res://Assets/rock_face_03_diff_4k.jpg" id="2_bwn0r"]
 [ext_resource type="ArrayMesh" uid="uid://dthpp2rp08pky" path="res://Assets/a_marketplace_stand_0622231056_refine_obj/a_marketplace_stand_0622231056_refine.obj" id="4_wqlky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jega1"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kdwk"]
-albedo_texture = ExtResource("1_o1hh4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nn27"]
+albedo_texture = ExtResource("2_bwn0r")
+uv1_scale = Vector3(20, 20, 20)
+uv2_scale = Vector3(10, 10, 10)
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_r7jr6"]
 size = Vector3(50, 1, 50)
@@ -32,7 +35,7 @@ transform = Transform3D(-0.64679, 0.24326, -0.722833, 1.65713e-07, 0.947768, 0.3
 shape = SubResource("BoxShape3D_jega1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-material_override = SubResource("StandardMaterial3D_2kdwk")
+material_override = SubResource("StandardMaterial3D_3nn27")
 mesh = SubResource("BoxMesh_r7jr6")
 
 [node name="Player" parent="." instance=ExtResource("1_hmpmx")]
@@ -42,25 +45,27 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 3.77492, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 10)
 mesh = SubResource("CapsuleMesh_jhhay")
 
-[node name="Stall1" type="StaticBody3D" parent="."]
+[node name="stalls" type="Node3D" parent="."]
 
-[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="Stall1"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6, 1.96109, -10)
+[node name="Stall1" type="StaticBody3D" parent="stalls"]
+
+[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="stalls/Stall1"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 19.0894, 1.96109, -0.128736)
 mesh = ExtResource("4_wqlky")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01862, 2.02164, -10.0124)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stalls/Stall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0649, 2.03825, -0.232618)
 shape = SubResource("BoxShape3D_14y1p")
 
-[node name="Stall2" type="StaticBody3D" parent="."]
+[node name="Stall2" type="StaticBody3D" parent="stalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.8, 10)
 
-[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="Stall2"]
+[node name="AMarketplaceStand0622231056Refine" type="MeshInstance3D" parent="stalls/Stall2"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 15, 2.08165e-12, 2.08165e-12)
 mesh = ExtResource("4_wqlky")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stall2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stalls/Stall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0507, 0.185072, -0.136476)
 shape = SubResource("BoxShape3D_14y1p")

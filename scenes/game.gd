@@ -7,8 +7,7 @@ func _ready():
 	gemini_response = get_response("You are a spanish street vendor in a game about building confidence in speaking other languages")
 	responses = gemini_response.split(";")
 	
-	print(responses[0].strip_edges())
-	print(responses[1].strip_edges())
+	print(responses)
 
 func get_response(prompt: String) -> String:
 	var output: Array = []
