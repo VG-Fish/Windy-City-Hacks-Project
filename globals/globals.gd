@@ -3,6 +3,8 @@ extends Node
 var thread: Thread
 var response: String
 
+signal got_response
+
 func send_response(prompt: String) -> void:
 	thread = Thread.new()
 	thread.start(_get_response.bind(prompt))
@@ -17,7 +19,12 @@ func _get_response(prompt: String) -> String:
 		return str(output[0])
 	return "Error in getting response."
 	
+func check_response_status():
+	if !thread.is_alive():
+		response = thread.wait_to_finish()
+		got_response.emit()
+
 func get_response() -> String:
-	if thread.is_alive():
-		return "Getting response..."
-	return thread.wait_to_finish()
+	var tmp: String = response
+	response = ""
+	return tmp
